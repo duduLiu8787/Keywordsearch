@@ -1,0 +1,112 @@
+# 副檔名清單 — forensic_search 會掃描列在這裡的檔案類型
+#
+# 規則：
+#   - 每行一個副檔名，前面的點號可有可無（txt 與 .txt 等價）
+#   - # 開頭為註解；空行會被忽略
+#   - 不分大小寫
+#
+# 自動載入順序：
+#   1. 若指令有 --ext "a,b,c" → 完全覆蓋下面這份
+#   2. 若指令有 --ext-file PATH → 使用該檔
+#   3. 若 exe 旁邊有 extensions.txt（也就是這份）→ 自動載入
+#   4. 內建預設（80+ 種，可用 --list-extensions 看）
+#
+# 進階：
+#   - 不想動這份檔，又想暫時加幾個 → forensic_search.exe --ext-add ext1,ext2
+#   - 想暫時排除幾個 → forensic_search.exe --ext-remove log,tmp
+#   - 列出最終生效清單 → forensic_search.exe --list-extensions
+#
+# 特殊功能：加上 @no-ext-special 就會把無副檔名但檔名是 Dockerfile / Makefile /
+# README / LICENSE / Gemfile / Rakefile 的檔案也納入掃描。
+
+# ─── 常見純文字 ───────────────────────────────
+txt
+log
+csv
+tsv
+md
+rst
+
+# ─── 設定檔 ───────────────────────────────
+ini
+conf
+cfg
+toml
+yaml
+yml
+json
+xml
+env
+
+# ─── 網頁 / 樣式 / 腳本 ───────────────────────────────
+html
+htm
+css
+js
+ts
+jsx
+tsx
+vue
+svelte
+
+# ─── 程式語言原始碼 ───────────────────────────────
+py
+rs
+go
+c
+h
+cpp
+cc
+hpp
+hh
+cs
+java
+kt
+swift
+php
+rb
+pl
+sh
+bash
+zsh
+fish
+bat
+cmd
+ps1
+psm1
+sql
+tex
+lua
+r
+scala
+groovy
+dart
+ex
+exs
+erl
+lisp
+el
+clj
+cljs
+edn
+asm
+vb
+vbs
+
+# ─── Diff / Patch ───────────────────────────────
+diff
+patch
+
+# ─── Office 文件（會自動抽取文字） ───────────────────────────────
+doc
+docx
+xls
+xlsx
+ppt
+pptx
+
+# ─── PDF（pdf-extract 解析 + lopdf） ───────────────────────────────
+pdf
+
+# ─── 啟用：無副檔名但有意義的常見檔名（Dockerfile / Makefile 等） ───
+@no-ext-special

@@ -1,0 +1,14 @@
+# 採證搜尋目標設定檔
+# 每行一個關鍵字，# 開頭為註解，空行會被忽略
+
+# 網域 / URL
+example.com
+
+
+# 電子郵件
+example@gmail.com
+
+# 特定字串
+"aaaa"
+"bbbb"
+"cccc"
